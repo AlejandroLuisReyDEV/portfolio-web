@@ -1,0 +1,14 @@
+// Clase base para elementos ocultos que van a revelarse
+.reveal {
+  opacity: 0;
+  transform: translateY(40px); // Empieza 40px más abajo de su posición real
+  // Usamos una curva de aceleración 'cubic-bezier' (estilo Apple) superorgánica
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  // Cuando JS le añada esta clase, el elemento vuelve a su ser
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

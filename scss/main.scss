@@ -1,0 +1,16 @@
+// 1. Utilidades
+@use 'utilities/variables';
+@use 'utilities/animations';
+
+// 2. Base
+@use 'base/reset';
+
+// 3. Layout
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Componentes
+@use 'components/hero';
+@use 'components/about';
+@use 'components/projects';
+@use 'components/experience';

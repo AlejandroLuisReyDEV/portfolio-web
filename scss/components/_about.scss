@@ -1,0 +1,104 @@
+@use '../utilities/variables' as var;
+
+// ==========================================
+// CABECERA DE SECCIÓN (Plantilla global)
+// ==========================================
+.section-header {
+  margin-bottom: 3.5rem;
+
+  &__title {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var.$color-text-main;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    // Subrayado decorativo de acento
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 40%;
+      height: 3px;
+      background-color: var.$color-accent;
+      border-radius: 2px;
+    }
+  }
+
+  &__subtitle {
+    color: var.$color-text-muted;
+    font-size: 1rem;
+  }
+}
+
+// ==========================================
+// SECCIÓN SOBRE MÍ
+// ==========================================
+.about {
+  padding: 6rem 2rem;
+  background-color: rgba(var.$color-surface, 0.2); // Le da un sutil contraste respecto al Hero
+
+  &__container {
+    max-width: var.$bp-desktop;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // En móvil: 1 sola columna
+    gap: 3rem;
+
+    // En pantallas grandes pasamos a 2 columnas asimétricas (más espacio para el texto)
+    @media (min-width: var.$bp-tablet) {
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 4rem;
+    }
+  }
+
+  &__bio {
+    color: var.$color-text-muted;
+    font-size: 1.05rem;
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    strong {
+      color: var.$color-text-main;
+    }
+  }
+
+  &__skills-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var.$color-text-main;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Píldoras de tecnología
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+
+  &__item {
+    background-color: var.$color-surface;
+    color: var.$color-text-main;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var.$color-accent;
+      color: var.$color-accent;
+      transform: translateY(-2px);
+    }
+  }
+}

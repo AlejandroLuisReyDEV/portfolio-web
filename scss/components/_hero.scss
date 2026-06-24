@@ -1,0 +1,84 @@
+@use '../utilities/variables' as var;
+
+.hero {
+  // min-height 100vh asegura que ocupe el 100% del alto de la pantalla visible
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  padding: 8rem 2rem 4rem; // Extra de padding superior para que no lo tape el header fijo
+
+  &__content {
+    max-width: var.$bp-desktop;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var.$color-accent;
+    background-color: rgba(255, 255, 255, 0.03); // Fondo semitransparente sutil
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(var.$color-accent, 0.3);
+  }
+
+  &__title {
+    // clamp(mínimo, valor ideal fluido, máximo). ¡Magia pura para responsive!
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    max-width: 850px;
+
+    span {
+      color: var.$color-accent; // Resaltamos el texto clave en cian
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var.$color-text-muted;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; // Si la pantalla es muy pequeña, los botones se ponen uno debajo del otro
+  }
+
+  &__btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &--primary {
+      background-color: var.$color-accent;
+      color: var.$color-bg;
+
+      &:hover {
+        background-color: var.$color-text-main;
+        transform: translateY(-2px); // Efecto de que el botón se "eleva" al pasar el ratón
+      }
+    }
+
+    &--secondary {
+      border: 1px solid rgba(var.$color-text-muted, 0.4);
+      color: var.$color-text-main;
+
+      &:hover {
+        border-color: var.$color-accent;
+        color: var.$color-accent;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+// ==========================================
+// VARIABLES DEL SISTEMA
+// ==========================================
+
+// Paleta Dark Mode
+$color-bg: #0b0f19;         // Fondo principal (Azul noche muy profundo)
+$color-surface: #131b2e;    // Fondo para tarjetas y contenedores (un tono más claro)
+$color-text-main: #f1f5f9;  // Blanco roto (para que no deslumbre al leer)
+$color-text-muted: #94a3b8; // Gris azulado (para subtítulos y descripciones)
+
+// Color de acento
+$color-accent: #00f2fe;     // Cian eléctrico (para botones, hover y detalles)
+
+// Tipografía
+$font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+
+// Breakpoints (Mobile First)
+$bp-tablet: 768px;
+$bp-desktop: 1024px;

@@ -1,0 +1,95 @@
+@use '../utilities/variables' as var;
+
+.experience {
+  padding: 6rem 2rem;
+  background-color: rgba(var.$color-surface, 0.2);
+
+  &__container {
+    max-width: 800px; // Lo hacemos un poco más estrecho para que la lectura sea más cómoda
+    margin: 0 auto;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem; // Espacio para la línea y los puntos
+
+  // La línea vertical
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(var.$color-text-muted, 0.2);
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Efecto hover sobre todo el bloque
+    &:hover .timeline__marker {
+      background-color: var.$color-accent;
+      box-shadow: 0 0 10px rgba(var.$color-accent, 0.5);
+      transform: scale(1.2);
+    }
+    
+    &:hover .timeline__content {
+      border-color: rgba(var.$color-accent, 0.3);
+      transform: translateX(5px);
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    top: 5px;
+    left: -2.35rem; // Centra el punto exactamente sobre la línea vertical
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var.$color-surface;
+    border: 2px solid var.$color-accent;
+    transition: all 0.3s ease;
+  }
+
+  &__content {
+    background-color: var.$color-surface;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  &__date {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var.$color-accent;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    color: var.$color-text-main;
+    margin-bottom: 0.2rem;
+  }
+
+  &__company {
+    font-size: 0.95rem;
+    color: var.$color-text-muted;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: var.$color-text-muted;
+    line-height: 1.6;
+  }
+}

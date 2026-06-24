@@ -1,0 +1,121 @@
+@use '../utilities/variables' as var;
+
+.footer {
+  padding: 8rem 2rem 2rem; // Mucho aire por arriba para separarlo de la sección anterior
+  background-color: var.$color-bg;
+
+  &__container {
+    max-width: var.$bp-desktop;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__top {
+    max-width: 600px;
+    margin-bottom: 6rem;
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var.$color-text-main;
+    margin-bottom: 1.5rem;
+  }
+
+  &__subtitle {
+    color: var.$color-text-muted;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 2px solid var.$color-accent;
+    color: var.$color-accent;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(var.$color-accent, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(var.$color-accent, 0.2);
+    }
+  }
+
+ &__bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    // En pantallas grandes, location a la izquierda y redes a la derecha
+    @media (min-width: var.$bp-tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__location {
+    color: var.$color-text-muted;
+    font-size: 0.95rem;
+  }
+
+  // --- NUEVA ESTRUCTURA PARA LOS ICONOS SVG ---
+
+  &__socials {
+    display: flex;
+    gap: 2rem;
+    list-style: none; // Reseteamos por si acaso no lo tienes a nivel global
+    padding: 0;
+    margin: 0;
+  }
+
+  &__social-item {
+    display: flex;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; // Este es el espacio clave entre el icono y el texto
+    color: var.$color-text-main;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var.$color-accent;
+      transform: translateY(-2px); // Un pequeño detalle extra de microinteracción
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    // No hace falta darle color aquí. 
+    // Al usar stroke="currentColor" en el HTML, heredará el color de __link o de su estado :hover.
+  }
+
+  &__text {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  // ---------------------------------------------
+
+  &__copyright {
+    width: 100%;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(var.$color-text-muted, 0.5);
+    font-size: 0.85rem;
+  }
+}

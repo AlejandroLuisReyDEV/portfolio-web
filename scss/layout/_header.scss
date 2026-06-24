@@ -1,0 +1,123 @@
+@use '../utilities/variables' as var;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(var.$color-bg, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(var.$color-surface, 0.5);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var.$bp-desktop;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+
+  &__logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    z-index: 1001;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__accent {
+    color: var.$color-accent;
+  }
+
+  // ==========================================
+  // BOTÓN HAMBURGUESA
+  // ==========================================
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+
+    // Se muestra en móviles
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__toggle-icon {
+    width: 30px;
+    height: 3px;
+    background-color: var.$color-text-main;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  // ==========================================
+  // MENÚ DE NAVEGACIÓN
+  // ==========================================
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    // Se oculta en móviles y se prepara para el efecto
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var.$color-bg;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+      
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var.$color-text-muted;
+    transition: color 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      color: var.$color-text-main;
+    }
+
+    &--btn {
+      color: var.$color-bg;
+      background-color: var.$color-accent;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: var.$color-text-main;
+        color: var.$color-bg;
+      }
+    }
+  }
+}
