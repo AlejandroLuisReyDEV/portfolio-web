@@ -14,3 +14,15 @@ Componente Experience: Desarrollo de una línea de tiempo vertical (Timeline) us
 
 Componente Footer: Cierre visual minimalista enfocado en la conversión (contacto rápido) con detalles tipográficos y redes sociales.
 
+Footer optimizado: Se añadieron los logos SVG oficiales y sólidos de LinkedIn y GitHub con texto.
+
+Efecto Hover en Footer: Se aplicó Flexbox y currentColor para que iconos y textos cambien de color a la vez.
+
+Botones en Tarjetas: Se estructuraron los enlaces con iconos según las necesidades reales de cada proyecto.
+
+SCSS de Tarjetas: Se adaptaron los estilos para alinear los nuevos iconos SVG con el texto usando inline-flex.
+
+Bug de Navbar resuelto: Se arregló el contraste del botón de contacto para que el texto sea legible al hacer hover.
+
+25/06/2026
+
