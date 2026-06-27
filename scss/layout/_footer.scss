@@ -32,6 +32,46 @@
     line-height: 1.6;
   }
 
+  // --- NUEVA SECCIÓN DE CONTACTO DIRECTO (Email y Teléfono) ---
+  &__contact {
+    display: flex;
+    flex-direction: column; // En móviles, apilados
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    // En escritorio, uno al lado del otro
+    @media (min-width: var.$bp-tablet) {
+      flex-direction: row;
+      gap: 4rem; // Separación amplia y limpia entre el email y el teléfono
+    }
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  &__contact-label {
+    color: var.$color-text-muted; // Integrado con tus variables
+    font-weight: 600;
+  }
+
+  &__contact-link {
+    color: var.$color-text-main; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+
+    // Efecto hover con tu color cian
+    &:hover {
+      color: var.$color-accent;
+    }
+  }
+  // ------------------------------------------------------------
+
   &__btn {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -49,7 +89,7 @@
     }
   }
 
- &__bottom {
+  &__bottom {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -69,7 +109,7 @@
     font-size: 0.95rem;
   }
 
-  // --- NUEVA ESTRUCTURA PARA LOS ICONOS SVG ---
+  // --- ESTRUCTURA PARA LOS ICONOS SVG ---
 
   &__socials {
     display: flex;

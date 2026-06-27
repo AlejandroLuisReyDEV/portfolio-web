@@ -7,9 +7,26 @@
   align-items: center;
   padding: 8rem 2rem 4rem; // Extra de padding superior para que no lo tape el header fijo
 
-  &__content {
+  // NUEVO: Este contenedor ahora controla el flujo de las dos columnas (Texto e Imagen)
+  &__container {
     max-width: var.$bp-desktop;
     margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column; // En móviles se muestra uno encima de otro
+    align-items: center;
+    gap: 3rem;
+
+    // Cuando la pantalla es de escritorio, se ponen en fila (lado a lado)
+    @media (min-width: 992px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  // MODIFICADO: Ahora es una de las columnas internas del contenedor flex
+  &__content {
+    flex: 1;
     width: 100%;
   }
 
@@ -53,6 +70,13 @@
   }
 
   &__btn {
+    // MODIFICADO: inline-flex + align-items asegura que el icono SVG y el texto se alineen verticalmente a la perfección
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; // Espacio exacto entre el SVG y el texto del botón
+    text-decoration: none; // Evita subrayados si se usan etiquetas <a>
+    
     padding: 0.8rem 1.8rem;
     border-radius: 6px;
     font-weight: 700;
@@ -80,5 +104,32 @@
         transform: translateY(-2px);
       }
     }
+  }
+
+  // NUEVO: Controladores específicos para los elementos internos del botón
+  &__btn-icon {
+    flex-shrink: 0; // Evita que el SVG se deforme o encoja
+  }
+
+  &__btn-text {
+    line-height: 1;
+  }
+
+  // NUEVO: Estilos para controlar el tamaño máximo y estética de la foto de perfil
+  &__image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 450px; // Límite para que la foto mantenga una proporción perfecta en pantallas grandes
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1.5rem; // Esquinas redondeadas suaves para hacer juego con las tarjetas de proyectos
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); // Sombra profunda para destacar sobre el fondo oscuro
   }
 }
