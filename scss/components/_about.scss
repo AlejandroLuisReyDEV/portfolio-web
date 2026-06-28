@@ -45,14 +45,14 @@
     margin: 0 auto;
   }
 
-  &__grid {
+&__grid {
     display: grid;
-    grid-template-columns: 1fr; // En móvil: 1 sola columna
-    gap: 3rem;
+    grid-template-columns: 1fr; 
+    gap: 4rem;
 
-    // En pantallas grandes pasamos a 2 columnas asimétricas (más espacio para el texto)
     @media (min-width: var.$bp-tablet) {
-      grid-template-columns: 1.1fr 0.9fr; 
+      grid-template-columns: 0.8fr 1.2fr; 
+      align-items: start;
       gap: 4rem;
     }
   }
@@ -80,25 +80,50 @@
 }
 
 // Píldoras de tecnología
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+// SCSS para arreglar la sección de habilidades y convertirlas en píldoras
+.skills-category {
+    margin-bottom: 2rem; // Un poco más de aire entre categorías
 
-  &__item {
-    background-color: var.$color-surface;
-    color: var.$color-text-main;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
-
-    &:hover {
-      border-color: var.$color-accent;
-      color: var.$color-accent;
-      transform: translateY(-2px);
+    &:last-child {
+        margin-bottom: 0;
     }
-  }
+
+    &__title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var.$color-text-muted; 
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+    }
+}
+
+// Magia Flexbox para las listas
+.skills-list {
+    display: flex;
+    flex-wrap: wrap; // Obliga a las píldoras a saltar de línea si no caben
+    gap: 0.6rem; // Espacio uniforme entre las píldoras
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        background-color: rgba(255, 255, 255, 0.05); // Fondo sutil
+        border: 1px solid rgba(255, 255, 255, 0.05); // Borde ligero para dar volumen
+        color: var.$color-text-main;
+        padding: 0.4rem 1rem;
+        border-radius: 50px; // Bordes totalmente redondeados (efecto píldora)
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        // Microinteracción al pasar el ratón
+        &:hover {
+            background-color: rgba(var.$color-accent, 0.1);
+            border-color: rgba(var.$color-accent, 0.3);
+            color: var.$color-accent;
+            transform: translateY(-2px);
+        }
+    }
 }
