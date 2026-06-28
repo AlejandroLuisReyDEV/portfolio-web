@@ -39,6 +39,6 @@ Si deseas clonar y explorar el código de este proyecto en tu entorno local:
 
 ## 📫 Contacto
 
-- LinkedIn: [\[Tu Enlace de LinkedIn\]](https://www.linkedin.com/in/alejandroluisreydev/)
+- LinkedIn: [\[Alejandro Luis Rey\]](https://www.linkedin.com/in/alejandroluisreydev/)
 
 - Email: alexrey585@gmail.com
