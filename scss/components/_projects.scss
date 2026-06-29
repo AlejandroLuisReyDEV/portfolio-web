@@ -30,12 +30,27 @@
     border-color: rgba(var.$color-accent, 0.4);
   }
 
+
   &__image-wrapper {
     width: 100%;
     height: 200px;
     background-color: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
   }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
 
   // Esto lo borraremos cuando pongas imágenes reales (<img>)
   &__image-placeholder {
@@ -97,7 +112,7 @@
     }
   }
 
- &__links {
+  &__links {
     display: flex;
     gap: 1.5rem; // Aumentado ligeramente para separar mejor los dos botones en HabitTrack
   }
@@ -119,7 +134,7 @@
 
     &--primary {
       color: var.$color-accent;
-      
+
       &:hover {
         color: white; // O el color que mejor contraste con tu fondo al hacer hover
       }
