@@ -28,9 +28,9 @@ Este portfolio ha sido diseñado y desarrollado desde cero con un enfoque especi
 Si deseas clonar y explorar el código de este proyecto en tu entorno local:
 
 1. Clona el repositorio:
-   ```bash
-   git clone [https://github.com/AlejandroLuisReyDEV/portfolio](https://github.com/AlejandroLuisReyDEV/portfolio)
-    ```
+```bash
+git clone https://github.com/AlejandroLuisReyDEV/portfolio.git
+```
 2. Abre el proyecto en tu editor de código (ej. VS Code).
 
 3. Asegúrate de tener instalada la extensión Live Sass Compiler para compilar los estilos si deseas hacer cambios.
